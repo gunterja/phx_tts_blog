@@ -19,7 +19,7 @@
   <ul>
     <% @blog_post.comments.each do |comment| %>
     <li>
-      <p>On <%= l comment.created_at %>, <%= comment.author %> said:</p>
+      <p>On <%= comment.created_at.stamp('The 1st of January, 2001 at 11:56am') %>, <%= comment.author %> said:</p>
       <p><%= comment.comment_entry %></p>
     </li>
     <% end %>
