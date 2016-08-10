@@ -17,3 +17,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* For hiding the comment-blog association */
+
+.cant-see-me {
+  display: none;
+}
