@@ -5,7 +5,7 @@
 
 <p>
   <strong>Author:</strong>
-  <%= @blog_post.author %>
+  <%= @blog_post.user.email %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
   <ul>
     <% @blog_post.comments.each do |comment| %>
     <li>
-      <p>On <%= comment.created_at.stamp('The 1st of January, 2001 at 11:56am') %>, <%= comment.author %> said:</p>
+      <p>On <%= comment.created_at.stamp('The 1st of January, 2001 at 11:56am') %>, <%= comment.user.email %> said:</p>
       <p><%= comment.comment_entry %></p>
     </li>
     <% end %>
