@@ -7,20 +7,68 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<!-- Dismissable Flash Message -->
 <% if notice != nil %>
-  <p class="notice"><%= notice %></p>
-<% end %>
-<% if alert != nil %>
-  <p class="alert"><%= alert %></p>
+  <!-- <div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <p class="notice"><%= notice %></p>
+  </div> -->
 <% end %>
 
+<% if alert != nil %>
+  <!-- <div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <p class="notice"><%= alert %></p>
+  </div> -->
+<% end %>
+<!-- End Dismissable Flash Message -->
+
+<!-- Navbar Section -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "TechTalentBlog", root_path, class: "navbar-brand" %>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <div class="navbar-form navbar-right">
+        <% if user_signed_in? %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger pull-right" %>
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary pull-right" %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>
+<!-- End Navbar Section -->
+
+<!-- Turbolinks swap section & Flash Message Helper -->
 <div class="container">
-  <div>
-    <% if user_signed_in? %>
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger pull-right" %>
-    <% end %>
+  <%= flash_messages %>
   <%= yield %>
 </div>
+<!-- End of Turbolinks swap section -->
+
 
 </body>
 </html>
+
+<!-- Potentially for adding sign-in functionality to navbar -->
+<!-- <form class="navbar-form navbar-right">
+  <div class="form-group">
+    <input type="text" placeholder="Email" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="password" placeholder="Password" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-success">Sign in</button>
+</form> -->
+
