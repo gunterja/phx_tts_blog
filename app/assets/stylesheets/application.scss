@@ -17,14 +17,36 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 /* For hiding the comment-blog association */
 
 .cant-see-me {
   display: none;
 }
 
-/* Navbar fix */
+
+/* Navbar-Body spacing fix */
 
 body {
   padding-top: 50px;
+}
+
+/* Spacing between buttons on navbar */
+
+div.navbar-form.navbar-right a {
+  margin: 0 5px;
+}
+
+/* Extending the Bootrstrap classes to cover all possible Flash types */
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.alert-notice {
+  @extend .alert-warning;
+}
+
+.show-view-wrapper {
+  margin-top: 20px;
 }
