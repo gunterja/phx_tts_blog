@@ -15,7 +15,7 @@
           </div>
         <% end %>
         <div class="panel-body">
-          <p>by: <%= blog_post.user.username %></p>
+          <p>by: <%= link_to blog_post.user.username, user_profile_path(id: blog_post.user_id) %></p>
           <p><%= blog_post.blog_entry[0..250] %>...
              <%= link_to "[more]", blog_post %>
           </p>

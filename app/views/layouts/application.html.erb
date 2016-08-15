@@ -27,6 +27,7 @@
           <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary pull-right" %>
         <% else %>
           <%= link_to "Sign in", new_user_session_path, class: 'btn btn-success' %>
+          <%= link_to "Forgot your password?", new_user_password_path, class: 'btn btn-warning' %>
         <% end %>
       </div>
     </div><!--/.navbar-collapse -->

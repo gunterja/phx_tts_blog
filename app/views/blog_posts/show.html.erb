@@ -6,7 +6,7 @@
 
   <p>
     <strong>Author:</strong>
-    <%= @blog_post.user.username %>
+    <%= link_to blog_post.user.username, user_profile_path(id: blog_post.user_id) %>
   </p>
 
   <p>
@@ -20,7 +20,7 @@
       <li>
         <p>
           On <%= comment.created_at.stamp('The 1st of January, 2001 at 11:56am') %>,
-          <%= comment.user.username %> said:
+          <%= link_to comment.user.username, user_profile_path(id: comment.user_id) %> said:
         </p>
         <p>
           <%= comment.comment_entry %>
